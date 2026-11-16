@@ -1,0 +1,78 @@
+ABSTRACT
+Deaf-blind individuals often experience difficulties in communicating with others due to the combined limitations of hearing and vision. To address this challenge, the proposed project, Touch Message Band, aims to develop a wearable device that enables two-way communication through tactile Braille.
+The system consists of a wearable band integrated with an ESP32 microcontroller and a mobile application. A caregiver can enter a text message through the mobile application, which is converted into corresponding Braille codes and transmitted to the wearable device through Wi-Fi using the MQTT communication protocol. Upon receiving a message, a vibration motor provides an alert to notify the user. The ESP32 then controls six solenoid-operated tactile pins arranged in a standard 2 × 3 Braille configuration to represent each character. The user can identify the displayed characters through touch and navigate through the message using NEXT and REPEAT buttons.
+The system also supports two-way communication by allowing the user to enter responses through six dedicated Braille input buttons. The ESP32 converts the entered Braille patterns into text and transmits the response back to the caregiver's mobile application through MQTT. The proposed system aims to provide an accessible and convenient communication solution for deaf-blind individuals.
+
+PROBLEM STATEMENT
+Deaf-blind individuals face significant challenges in communicating with others due to their limited access to conventional visual and audio communication methods. Existing communication methods may not always be convenient or accessible for everyday interactions. Therefore, there is a need for a simple, wearable and user-friendly system that enables deaf-blind individuals to receive messages and send responses independently through tactile communication.
+
+OBJECTIVES
+1.	To develop a wearable tactile communication band for deaf-blind individuals.
+2.	To convert text messages received from a mobile application into Braille patterns.
+3.	To display Braille characters using six solenoid-operated tactile pins.
+4.	To provide vibration alerts whenever a new message is received.
+5.	To enable users to enter messages using six dedicated Braille input buttons.
+6.	To transmit the user's responses to the caregiver's mobile application using Wi-Fi and MQTT.
+7.	To establish a reliable two-way communication system through tactile interaction.
+
+METHODOLOGY
+The proposed Touch Message Band operates through two communication modes: receiving messages from the mobile application and sending responses from the wearable device.
+
+A. Receiving Messages (Mobile Application to Wearable Band)
+1.	The caregiver enters a text message through the mobile application.
+2.	The application converts the entered text into corresponding Braille patterns.
+3.	The converted message is transmitted through an MQTT broker using Wi-Fi connectivity.
+4.	The ESP32 microcontroller receives the message.
+5.	A vibration motor briefly activates to notify the user about the arrival of a new message.
+6.	The ESP32 controls the six solenoid actuators to raise the corresponding tactile pins according to the Braille pattern.
+7.	The user identifies the displayed character by touching the tactile pins.
+8.	NEXT and REPEAT buttons allow the user to navigate through the received message.
+
+B. Sending Messages (Wearable Band to Mobile Application)
+1.	The user enters a Braille character using six dedicated push buttons.
+2.	The ESP32 reads the combination of pressed buttons.
+3.	The input combination is converted into its corresponding text character using Braille decoding.
+4.	The user presses the SEND button after composing the message.
+5.	The ESP32 transmits the converted text to the MQTT broker through Wi-Fi.
+6.	The caregiver receives the response in the mobile application.
+
+ 
+ HARDWARE COMPONENTS
+Sl. No.	Component	Quantity	Purpose
+1	ESP32 Development Board	1	Main microcontroller for processing and controlling the system
+2	Solenoid Actuators	6	Raise and lower the tactile pins
+3	Tactile Pins	6	Display Braille characters through touch
+4	Braille Push Buttons	6	Enable Braille input by the user
+5	NEXT Push Button	1	Navigate to the next character
+6	REPEAT Push Button	1	Repeat the current character
+7	SEND Push Button	1	Transmit the user's response
+8	Mini Vibration Motor	1	Notify the user when a new message arrives
+9	MOSFET Driver Circuit	6 	Control the solenoid actuators
+10	Flyback Diodes	6	Protect the driver circuits from inductive voltage spikes
+11	Vibration Motor Driver	1	Control the vibration motor
+12	Rechargeable Battery	1	Supply power to the wearable device
+13	Battery Charging Module	1	Recharge the battery
+14	Voltage Regulator Circuit	1	Provide appropriate operating voltages
+15	PCB / Breadboard	1	Circuit assembly and connections
+16	Connecting Wires		Establish electrical connections
+17	Wristband and Enclosure	1	Provide wearable mounting for the system
+
+SOFTWARE COMPONENTS
+Sl. No.	Software / Technology	Purpose
+1	Arduino IDE	Programming the ESP32 microcontroller
+2	Embedded C/C++	Developing the microcontroller firmware
+3	Flutter	Developing the mobile application
+4	Dart	Programming language used for Flutter development
+5	MQTT Protocol	Enabling two-way message communication
+6	HiveMQ Cloud	Providing the MQTT broker service
+7	Wi-Fi	Establishing wireless connectivity
+8	Braille Encoding and Decoding	Converting text into Braille patterns and Braille input into text
+
+EXPECTED OUTCOMES
+1.	Development of a wearable prototype capable of receiving text messages from a mobile application.
+2.	Successful conversion of text messages into tactile Braille patterns.
+3.	Notification of incoming messages through a vibration motor.
+4.	Display of Braille characters using six solenoid-operated tactile pins.
+5.	Implementation of Braille-based message input for sending responses.
+6.	Establishment of two-way communication between deaf-blind individuals and caregivers.
+
